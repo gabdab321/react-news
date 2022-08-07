@@ -1,13 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import "./styles/App.scss"
-import {useRequest} from "./hooks/useRequest";
-import NewsService from "./API/NewsService";
+import MyHeader from "./components/UI/header/MyHeader";
 
 function App() {
 
     return (
         <div className="App">
+            <MyHeader/>
 
+            <div className="App__container">
+            </div>
         </div>
     );
 }
