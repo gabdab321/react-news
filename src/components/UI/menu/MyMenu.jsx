@@ -5,8 +5,6 @@ import MyNavbar from "../navbar/MyNavbar";
 import {CSSTransition} from "react-transition-group";
 
 const MyMenu = ({opened}) => {
-    console.log(opened)
-
     return (
         <CSSTransition
             in={opened}
