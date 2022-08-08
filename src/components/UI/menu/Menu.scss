@@ -1,0 +1,31 @@
+.menu{
+    &-enter {
+        transform: translateY(-100%);
+        visibility: visible;
+    }
+    &-enter-active {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 700ms cubic-bezier(.16,.65,.53,.99);
+        visibility: visible;
+    }
+    &-exit {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+    &-exit-active {
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: all 700ms cubic-bezier(.16,.65,.53,.99);
+        visibility: visible;
+    }
+
+
+    &-enter-done{
+        visibility: visible;
+    }
+    &-exit-done {
+        visibility: hidden;
+    }
+}

@@ -1,24 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ReactComponent as NewsLogo} from "../../../img/news_logo.svg";
 import cl from "./MyHeader.module.scss"
-import {BiNews} from "react-icons/bi";
-import {IoMenuOutline} from "react-icons/io5"
+import MyNavbar from "../navbar/MyNavbar";
+import {useDispatch} from "react-redux";
+import {closeMenuAction, openMenuAction} from "../../../store/reducers/menuReducer";
 
 const MyHeader = () => {
+    const [isMenuActive, setIsMenuActive] = useState(false)
+
+    const dispatch = useDispatch()
+
+    const onMenu = () => {
+        if(isMenuActive) {
+            dispatch(closeMenuAction())
+        }else{
+            dispatch(openMenuAction())
+        }
+
+        setIsMenuActive(!isMenuActive)
+    }
+
+    let hamburgerClasses = [cl.header__hamburger , "hamburger", "hamburger--spring"]
+
+    if(isMenuActive) hamburgerClasses.push("is-active")
+
     return (
         <header className={cl.header}>
             <div className={cl.header__container}>
+
                 <NewsLogo className={cl.header__logo}/>
 
-                <nav className={cl.header__nav}>
-                    <a className={cl.header__link} onClick={e => e.preventDefault()} href="#"><BiNews className={cl.header__icon}/>business</a>
-                    <a className={cl.header__link} onClick={e => e.preventDefault()} href="#"><BiNews className={cl.header__icon}/>entertainment</a>
-                    <a className={cl.header__link} onClick={e => e.preventDefault()} href="#"><BiNews className={cl.header__icon}/>health</a>
-                    <a className={cl.header__link} onClick={e => e.preventDefault()} href="#"><BiNews className={cl.header__icon}/>science</a>
-                    <a className={cl.header__link} onClick={e => e.preventDefault()} href="#"><BiNews className={cl.header__icon}/>sports</a>
-                    <a className={cl.header__link} onClick={e => e.preventDefault()} href="#"><BiNews className={cl.header__icon}/>technology</a>
-                    <IoMenuOutline className={ cl["header__menu-icon"] }/>
-                </nav>
+                <MyNavbar linkClassName={cl.header__link} className={cl.header__nav}/>
+
+                <button onClick={onMenu} className={hamburgerClasses.join(" ")} type="button">
+                    <span className="hamburger-box">
+                        <span className="hamburger-inner" />
+                    </span>
+                </button>
+
             </div>
         </header>
     );

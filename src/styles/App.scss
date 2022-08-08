@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import "~hamburgers/_sass/hamburgers/hamburgers";
 
 *{
     padding: 0;
@@ -18,6 +19,5 @@
     &__container{
         width: 85%;
         height: inherit;
-        background-color: crimson;
     }
 }

@@ -1,0 +1,29 @@
+@import "src/styles/variables";
+
+.menu{
+    z-index: 10000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #E72B2B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    visibility: hidden;
+
+    &__nav{
+        flex-direction: column;
+        justify-content: space-between;
+        height: 60%;
+    }
+
+    &__link{
+        color: white;
+        font-size: 32px;
+        font-weight: bold;
+        margin-top: 35px;
+    }
+}
