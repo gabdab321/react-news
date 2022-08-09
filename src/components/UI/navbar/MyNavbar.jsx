@@ -5,6 +5,8 @@ import {useDispatch} from "react-redux";
 import {changeCategoryAction} from "../../../store/reducers/categoryReducer";
 import {resetPaginationAction} from "../../../store/reducers/pagintaionReducer";
 import {setMenuOpened} from "../../../store/reducers/menuReducer";
+import {NEWS_CATEGORIES} from "../../../consts/newsCategories"
+import NavbarLink from "./navbar__link/NavbarLink";
 
 const MyNavbar = ({mainClassName, linkClassName}) => {
     const dispatcher = useDispatch()
@@ -17,17 +19,12 @@ const MyNavbar = ({mainClassName, linkClassName}) => {
     }
 
     const mainClasses = [mainClassName, cl.nav].join(" ")
-    const linkClasses = [linkClassName, cl.nav__link].join(" ")
 
     return (
         <nav className={mainClasses}>
-            <a data-category="general" className={linkClasses} onClick={onHref} href="#"><BiNews className={cl.nav__icon}/>general</a>
-            <a data-category="business" className={linkClasses} onClick={onHref} href="#"><BiNews className={cl.nav__icon}/>business</a>
-            <a data-category="entertainment" className={linkClasses} onClick={onHref} href="#"><BiNews className={cl.nav__icon}/>entertainment</a>
-            <a data-category="health" className={linkClasses} onClick={onHref} href="#"><BiNews className={cl.nav__icon}/>health</a>
-            <a data-category="science" className={linkClasses} onClick={onHref} href="#"><BiNews className={cl.nav__icon}/>science</a>
-            <a data-category="sports" className={linkClasses} onClick={onHref} href="#"><BiNews className={cl.nav__icon}/>sports</a>
-            <a data-category="technology" className={linkClasses} onClick={onHref} href="#"><BiNews className={cl.nav__icon}/>technology</a>
+            {NEWS_CATEGORIES.map(category => {
+                return <NavbarLink key={category} category={category} linkClassName={linkClassName} onClick={onHref}/>
+            })}
         </nav>
     );
 };

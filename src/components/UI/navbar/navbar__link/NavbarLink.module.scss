@@ -1,0 +1,18 @@
+@import "./src/styles/variables";
+
+.link{
+    text-decoration: none;
+    color: $textColor;
+
+    display: inline-flex;
+    align-items: center;
+
+    &__icon{
+        margin-top: 2px;
+        margin-right: 4px;
+    }
+
+    &__selected{
+        color: $activeColor !important;
+    }
+}

@@ -15,4 +15,8 @@
         margin-top: 2px;
         margin-right: 4px;
     }
+
+    &__link-selected{
+        color: $activeColor;
+    }
 }
