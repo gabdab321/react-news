@@ -6,9 +6,8 @@ import {useDispatch} from "react-redux";
 import {closeMenuAction, openMenuAction} from "../../../store/reducers/menuReducer";
 
 const MyHeader = () => {
-    const [isMenuActive, setIsMenuActive] = useState(false)
-
     const dispatch = useDispatch()
+    const [isMenuActive, setIsMenuActive] = useState(false)
 
     const onMenu = () => {
         if(isMenuActive) {

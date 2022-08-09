@@ -8,6 +8,8 @@ import NewsList from "./components/NewsList/NewsList";
 function App() {
     const opened = useSelector(state => state.menu.opened)
 
+    console.log(opened)
+
     return (
         <div className="App">
             <MyMenu opened={opened}/>

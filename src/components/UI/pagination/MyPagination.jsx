@@ -3,9 +3,10 @@ import cl from "./MyPagination.module.scss"
 import ReactPaginate from "react-paginate";
 import {MdOutlineArrowForwardIos, MdOutlineArrowBackIos} from "react-icons/md"
 
-const MyPagination = ({onPageChange, pageCount}) => {
+const MyPagination = ({onPageChange, pageCount, forcePage}) => {
     return (
         <ReactPaginate
+            forcePage={forcePage}
             pageCount={pageCount}
             breakLabel="..."
             previousLabel={MdOutlineArrowBackIos()}
