@@ -1,33 +1,35 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import cl from "./NewsList.module.scss"
 import NewsItem from "../NewsItem/NewsItem";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {useRequest} from "../../hooks/useRequest";
 import NewsService from "../../API/NewsService";
 import MyPagination from "../UI/pagination/MyPagination";
 import MyLoader from "../UI/loader/MyLoader";
-import {countTotalPages, getCurrentPageOffset, getPageByOffset} from "../../utils/paginationUtils"
+import {countTotalPages, getOffsetByPage} from "../../utils/paginationUtils"
+import {setCurrentPageAction, setOffset, setTotalAction} from "../../store/reducers/pagintaionReducer";
+import {setNews} from "../../store/reducers/newsReducer";
 
 const NewsList = () => {
+    const dispatch = useDispatch()
+
     const category = useSelector(state => state.category.currenCategory)
-
-    const limit = 30
-
-    const [offset, setOffset] = useState(0)
-    const [total, setTotal] = useState(0)
-
-    const [currentPage, setCurrentPage] = useState(0)
-
+    const page = useSelector(state => state.pagination.currentPage)
+    const total = useSelector(state => state.pagination.total)
+    const limit = useSelector(state => state.pagination.limit)
+    const offset = useSelector(state => state.pagination.offset)
     const pageCount = useMemo(() => {
         return countTotalPages(total, limit)
     }, [total])
 
-    const [news, setNews] = useState([])
-    const [fetchNews, isLoading, error] = useRequest(async() => {
+
+    const news = useSelector(state => state.news.news)
+
+    const [fetchNews, isLoading] = useRequest(async() => {
         const response = await NewsService.getNews(category, limit, offset)
 
-        setTotal(response.pagination.total)
-        setNews(response.data)
+        dispatch(setTotalAction(response.pagination.total))
+        dispatch(setNews(response.data))
     })
 
     useEffect(() => {
@@ -40,15 +42,15 @@ const NewsList = () => {
                 <MyLoader />
                     :
                 <>
-                    {news.map(article => <NewsItem key={`${article.title}-${article.published_at}`} article={article}/>)}
+                    {news.map(article => <NewsItem key={`${article.title}-${article.published_at}-${article.url}-${article.author}`} article={article}/>)}
 
                     <MyPagination
                         onPageChange={e => {
-                            setOffset(getCurrentPageOffset(e.selected + 1, limit))
-                            setCurrentPage(e.selected)
+                            dispatch(setOffset(getOffsetByPage(e.selected, limit)))
+                            dispatch(setCurrentPageAction(e.selected))
                         }}
                         pageCount={pageCount}
-                        forcePage={currentPage}
+                        forcePage={page}
                     />
                 </>
             }

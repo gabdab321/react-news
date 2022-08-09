@@ -1,14 +1,10 @@
 const initialValue = {opened: false}
 
-const MENU_OPEN = "MENU_OPEN"
-const MENU_CLOSE = "MENU_CLOSE"
+const SET_MENU = "SET_MENU"
 
 function menuReducer(state = initialValue, action) {
     switch (action.type) {
-        case "MENU_OPEN":
-            return {opened: action.payload}
-
-        case "MENU_CLOSE":
+        case "SET_MENU":
             return {opened: action.payload}
 
         default:
@@ -17,5 +13,4 @@ function menuReducer(state = initialValue, action) {
 }
 
 export {menuReducer}
-export const openMenuAction = () => ({type: MENU_OPEN, payload: true})
-export const closeMenuAction = () => ({type: MENU_CLOSE, payload: false})
+export const setMenuOpened = payload => ({type: SET_MENU, payload: payload})

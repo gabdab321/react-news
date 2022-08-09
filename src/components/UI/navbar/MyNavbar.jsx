@@ -3,7 +3,8 @@ import cl from "./MyNavbar.module.scss"
 import {BiNews} from "react-icons/bi";
 import {useDispatch} from "react-redux";
 import {changeCategoryAction} from "../../../store/reducers/categoryReducer";
-import {closeMenuAction} from "../../../store/reducers/menuReducer";
+import {resetPaginationAction} from "../../../store/reducers/pagintaionReducer";
+import {setMenuOpened} from "../../../store/reducers/menuReducer";
 
 const MyNavbar = ({mainClassName, linkClassName}) => {
     const dispatcher = useDispatch()
@@ -11,7 +12,8 @@ const MyNavbar = ({mainClassName, linkClassName}) => {
     function onHref(e) {
         e.preventDefault()
         dispatcher(changeCategoryAction(e.target.dataset.category))
-        dispatcher(closeMenuAction())
+        dispatcher(setMenuOpened(false))
+        dispatcher(resetPaginationAction())
     }
 
     const mainClasses = [mainClassName, cl.nav].join(" ")

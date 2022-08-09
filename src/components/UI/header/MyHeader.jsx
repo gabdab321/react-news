@@ -1,22 +1,22 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ReactComponent as NewsLogo} from "../../../img/news_logo.svg";
 import cl from "./MyHeader.module.scss"
 import MyNavbar from "../navbar/MyNavbar";
-import {useDispatch} from "react-redux";
-import {closeMenuAction, openMenuAction} from "../../../store/reducers/menuReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {setMenuOpened} from "../../../store/reducers/menuReducer";
 
 const MyHeader = () => {
     const dispatch = useDispatch()
-    const [isMenuActive, setIsMenuActive] = useState(false)
+    const isMenuActive = useSelector(state => state.menu.opened)
 
     const onMenu = () => {
         if(isMenuActive) {
-            dispatch(closeMenuAction())
+            dispatch(setMenuOpened(false))
         }else{
-            dispatch(openMenuAction())
+            dispatch(setMenuOpened(true))
         }
 
-        setIsMenuActive(!isMenuActive)
+        dispatch(setMenuOpened(!isMenuActive))
     }
 
     let hamburgerClasses = [cl.header__hamburger , "hamburger", "hamburger--spring"]
