@@ -6,6 +6,8 @@ import MyMenu from "./components/UI/menu/MyMenu";
 import NewsList from "./components/NewsList/NewsList";
 
 function App() {
+    //todo attribute flag icons author at the footer
+
     const opened = useSelector(state => state.menu.opened)
 
     return (

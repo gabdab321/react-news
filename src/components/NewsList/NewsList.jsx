@@ -13,6 +13,8 @@ import {setNews} from "../../store/reducers/newsReducer";
 const NewsList = () => {
     const dispatch = useDispatch()
 
+    const country = useSelector(state => state.country.countryCode)
+
     const category = useSelector(state => state.category.currenCategory)
     const page = useSelector(state => state.pagination.currentPage)
     const total = useSelector(state => state.pagination.total)
@@ -26,7 +28,7 @@ const NewsList = () => {
     const news = useSelector(state => state.news.news)
 
     const [fetchNews, isLoading] = useRequest(async() => {
-        const response = await NewsService.getNews(category, limit, offset)
+        const response = await NewsService.getNews(country, category, limit, offset)
 
         dispatch(setTotalAction(response.pagination.total))
         dispatch(setNews(response.data))
@@ -34,7 +36,7 @@ const NewsList = () => {
 
     useEffect(() => {
         fetchNews()
-    }, [offset, category])
+    }, [offset, category, country])
 
     return (
         <section className={cl.list}>
