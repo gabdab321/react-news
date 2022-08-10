@@ -1,13 +1,13 @@
 @import "src/styles/variables";
 
 .menu{
-    z-index: 10000;
+    z-index: 11000;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100vh;
-    background-color: #E72B2B;
+    background-color: $secondaryColor;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,13 +1,13 @@
 import {COUNTRIES} from "../../consts/countries";
 
-const defaultValue = {currentCountry: COUNTRIES[0]}
+const defaultValue = {currentCountry: JSON.parse(localStorage.getItem("country")) || COUNTRIES[0]}
 
 const SET_COUNTRY = "SET_COUNTRY"
 
 export function countryReducer(state = defaultValue, action) {
     switch (action.type) {
         case "SET_COUNTRY":
-            console.log(action.payload)
+            localStorage.setItem("country", JSON.stringify(action.payload))
             return {currentCountry: action.payload}
 
         default:

@@ -13,11 +13,12 @@
     background-color: rgba(0, 0, 0, 0.5);
     visibility: visible;
     padding: 20px;
+    opacity: 1;
+    transition: all 0.7s;
 
     &__body{
         border-radius: 20px;
-        background-color: #ded6d6;
-        //padding: 10% 20%;
+        background-color: $mainColor;
         padding: 50px 50px;
 
         & div:not(:last-child) {
@@ -43,5 +44,6 @@
 }
 
 .modal-closed{
+    opacity: 0;
     visibility: hidden !important;
 }

@@ -1,0 +1,11 @@
+@import "./src/styles/variables";
+
+.switch{
+    margin-top: 20px;
+    display: flex;
+    color: $textColor;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}

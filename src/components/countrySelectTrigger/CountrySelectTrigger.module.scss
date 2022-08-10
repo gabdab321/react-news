@@ -1,0 +1,41 @@
+@import "./src/styles/variables";
+
+.trigger{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__body{
+        font-size: 28px;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+        color: $secondaryColor;
+    }
+
+    & img{
+        margin-left: 15px;
+    }
+
+    &__button{
+        border: 0;
+        border-radius: 24px;
+        padding: 15px 20px;
+        background-color: $secondaryColor;
+        color: $mainColor;
+        font-weight: bolder;
+        font-size: 16px;
+        transition: all 0.3s;
+
+        &:hover{
+            transform: translateY(-5px);
+            background-color: $activeColor;
+        }
+    }
+
+    @media screen and (max-width: $sm) {
+        &__body{
+            font-size: 16px;
+        }
+    }
+}

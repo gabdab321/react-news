@@ -1,9 +1,9 @@
-$textColor: #2a1f1f;
-$mainColor: #ffffff;
-$secondaryColor: #E72B2B;
-$activeColor: #a63333;
+$textColor: var(--text-color);
+$mainColor: var(--main-color);
+$secondaryColor: var(--secondary-color);
+$activeColor: var(--active-color);
 
-// responsive
+// breakpoints
 $sm: 576px;
 $md: 768px;
 $lg: 992px;

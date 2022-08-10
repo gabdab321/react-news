@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import "./switch";
+@import "./variables";
+
+$hamburger-layer-color: $secondaryColor;
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
 *{
@@ -15,6 +19,7 @@
     margin: 0 auto;
     min-height: 100vh;
     width: 100%;
+    background-color: $mainColor;
 
     &__container{
         width: 85%;

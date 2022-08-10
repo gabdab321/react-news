@@ -1,0 +1,16 @@
+:root{
+    --text-color-light_theme: #2a1f1f;
+    --main-color-light_theme: #ffffff;
+    --secondary-color-light_theme: #E72B2B;
+    --active-color-light_theme: #a63333;
+
+    --text-color-dark_theme: #bbbbbb;
+    --main-color-dark_theme: #130f0f;
+    --secondary-color-dark_theme: #438db4;
+    --active-color-dark_theme: #196a8d;
+
+    --text-color: var(--text-color-light_theme);
+    --main-color: var(--main-color-light_theme);
+    --secondary-color: var(--secondary-color-light_theme);
+    --active-color: var(--active-color-light_theme);
+}
