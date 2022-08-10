@@ -1,8 +1,13 @@
+import germanFlag from "../img/flags/germany.png"
+import ukraineFlag from "../img/flags/ukraine.png"
+import UKFlag from "../img/flags/united-kingdom.png"
+import USFlag from "../img/flags/united-states.png"
+import franceFlag from "../img/flags/france.png"
+
 export const COUNTRIES = [
-    {country: "Ukraine", countryCode: "ua", flagImageUrl: "https://www.flaticon.com/free-icons/ukraine"},
-    {country: "United States", countryCode: "us", flagImageUrl: "https://www.flaticon.com/free-icons/united-states"},
-    {country: "Great Britain", countryCode: "gb", flagImageUrl: "https://www.flaticon.com/free-icons/uk-flag"},
-    {country: "Germany", countryCode: "de", flagImageUrl: "https://www.flaticon.com/free-icons/germany"},
-    {country: "Poland", countryCode: "pl", flagImageUrl: "https://www.flaticon.com/free-icons/poland"},
-    {country: "France", countryCode: "fr", flagImageUrl: "https://www.flaticon.com/free-icons/france"},
+    {country: "Ukraine", countryCode: "ua", flagImageSrc: ukraineFlag},
+    {country: "United States", countryCode: "us", flagImageSrc: USFlag},
+    {country: "Great Britain", countryCode: "gb", flagImageSrc: UKFlag},
+    {country: "Germany", countryCode: "de", flagImageSrc: germanFlag},
+    {country: "France", countryCode: "fr", flagImageSrc: franceFlag},
 ]

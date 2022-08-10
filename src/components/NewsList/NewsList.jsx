@@ -13,7 +13,7 @@ import {setNews} from "../../store/reducers/newsReducer";
 const NewsList = () => {
     const dispatch = useDispatch()
 
-    const country = useSelector(state => state.country.countryCode)
+    const country = useSelector(state => state.country.currentCountry.countryCode)
 
     const category = useSelector(state => state.category.currenCategory)
     const page = useSelector(state => state.pagination.currentPage)

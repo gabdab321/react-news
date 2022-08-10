@@ -7,6 +7,7 @@ import {resetPaginationAction} from "../../../store/reducers/pagintaionReducer";
 import {setMenuOpened} from "../../../store/reducers/menuReducer";
 import {NEWS_CATEGORIES} from "../../../consts/newsCategories"
 import NavbarLink from "./navbar__link/NavbarLink";
+import {COUNTRIES} from "../../../consts/countries";
 
 const MyNavbar = ({mainClassName, linkClassName}) => {
     const dispatcher = useDispatch()
@@ -25,6 +26,7 @@ const MyNavbar = ({mainClassName, linkClassName}) => {
             {NEWS_CATEGORIES.map(category => {
                 return <NavbarLink key={category} category={category} linkClassName={linkClassName} onClick={onHref}/>
             })}
+
         </nav>
     );
 };
