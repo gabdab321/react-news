@@ -12,17 +12,7 @@ function App() {
     //todo: attribute flag icons author at the footer
     //todo: remove unused react-modal from package
 
-    const dispatch = useDispatch()
-
     const isMenuOpened = useSelector(state => state.menu.opened)
-    const theme = useSelector(state => state.theme.currentTheme)
-
-    useEffect(() => {
-        document.body.style.setProperty("--text-color", `var(--text-color-${theme})`)
-        document.body.style.setProperty("--main-color", `var(--main-color-${theme})`)
-        document.body.style.setProperty("--secondary-color", `var(--secondary-color-${theme})`)
-        document.body.style.setProperty("--active-color", `var(--active-color-${theme})`)
-    }, [theme])
 
     return (
         <div className="App">

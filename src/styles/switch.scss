@@ -23,7 +23,7 @@ label {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #333;
+    background-color: #E72B2B;
     -webkit-transition: 0.4s;
     transition: 0.4s;
 }
@@ -41,11 +41,11 @@ label {
 }
 
 input:checked + .slider {
-    background-color: #7f7ff1;
+    background-color: #757573;
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #7f7ff1;
+    box-shadow: 0 0 1px #757573;
 }
 
 input:checked + .slider:before {

@@ -6,8 +6,11 @@
 
     --text-color-dark_theme: #bbbbbb;
     --main-color-dark_theme: #130f0f;
-    --secondary-color-dark_theme: #438db4;
-    --active-color-dark_theme: #196a8d;
+    --secondary-color-dark_theme: #757573;
+    --active-color-dark_theme: #E72B2B;
+
+    /*--secondary-color-dark_theme: #25607c;*/
+    /*--active-color-dark_theme: #196a8d;*/
 
     --text-color: var(--text-color-light_theme);
     --main-color: var(--main-color-light_theme);
